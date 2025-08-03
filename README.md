@@ -1,3 +1,21 @@
+# GazaOS
+
+GazaOS is a ReactOS fork and designed for Gaza (aka Hamas) users who transition Windows to Windows similar system. Soon, GazaOS will be better than Microsoft (due to Israel situation).
+Additionally GazaOS will be include Gaza NT kernel to support Gaza NT version.
+
+What is Gaza NT?
+Gaza NT is based on Windows like NT kernel and designed to app support. 
+
+If you have a questions, contact us at gazaos@atomicmail.io
+
+© GazaOS. All rights reserved!
+
+# Credits:
+
+ReactOS
+
+# Original:
+
 <p align=center>
   <a href="https://reactos.org/">
     <img alt="ReactOS" src="https://reactos.org/wiki/images/0/02/ReactOS_logo.png">
