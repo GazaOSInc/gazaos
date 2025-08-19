@@ -144,23 +144,11 @@ Server_ReleaseParameters(
 
     DPRINT("Adapter: %p\n", Adapter);
 
-    if (Adapter->NteContext)
-    {
-        DeleteIPAddress(Adapter->NteContext);
-        Adapter->NteContext = 0;
-    }
-    if (Adapter->RouterMib.dwForwardNextHop)
-    {
-        DeleteIpForwardEntry(&Adapter->RouterMib);
-        Adapter->RouterMib.dwForwardNextHop = 0;
-    }
+    state_release(&Adapter->DhclientInfo);
 
     proto = find_protocol_by_adapter(&Adapter->DhclientInfo);
     if (proto)
         remove_protocol(proto);
-
-    Adapter->DhclientInfo.client->active = NULL;
-    Adapter->DhclientInfo.client->state = S_INIT;
 
     if (hAdapterStateChangedEvent != NULL)
         SetEvent(hAdapterStateChangedEvent);
@@ -262,4 +250,15 @@ done:
     ApiUnlock();
 
     return ret;
+}
+
+/* Function 4 */
+DWORD
+__stdcall
+Server_RemoveDNSRegistrations(
+    _In_ PDHCP_SERVER_NAME ServerName)
+{
+    DPRINT1("Server_RemoveDNSRegistrations()\n");
+    /* FIXME: Call dnsapi.DnsRemoveRegistrations() */
+    return ERROR_SUCCESS;
 }
